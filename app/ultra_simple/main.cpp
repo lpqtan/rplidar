@@ -281,6 +281,7 @@ int main(int argc, const char * argv[]) {
                     nodes[pos].dist_mm_q2/4.0f,
                     nodes[pos].quality >> SL_LIDAR_RESP_MEASUREMENT_QUALITY_SHIFT);
             }
+            break;
         }
 
         if (ctrl_c_pressed){ 
