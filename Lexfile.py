@@ -11,7 +11,7 @@ def processdata(resultstring,servoangle):
     final = ""
     count = 0
     for somestring in new:
-        somestring.strip()
+        somestring = somestring.strip()
         try:
             testvar = int(somestring)
             if count % 3 != 0:
@@ -50,6 +50,7 @@ for i in range(4,24):
     
     
 outputfile.close()
+
 
 sleep(1)
 
