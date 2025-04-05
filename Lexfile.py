@@ -45,7 +45,7 @@ for i in range(4,24):
     sleep(1)
     # convert to degrees, i from 2-12 to 0-180
     i = (i-2)*18
-    cleanstring = processdata(result,i)
+    cleanstring = processdata(result.stdout,i)
     outputfile.write(cleanstring)
     
     
