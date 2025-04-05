@@ -11,7 +11,7 @@ def processdata(resultstring,servoangle):
     new = re.split('theta:|Dist:|Q:|\n', resultstring)
     new.pop(0)
     final = ""
-    count = 0
+    count = 1
     for somestring in new:
         somestring = somestring.strip()
         try:
