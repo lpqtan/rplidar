@@ -11,11 +11,19 @@ p.start(0)               # Starts running PWM on the pin and sets it to 0
 
 # Move the servo back and forth
 p.ChangeDutyCycle(3)     # Changes the pulse width to 3 (so moves the servo)
-print(3)
-run_process = subprocess.run(["./output/Darwin/Release/ultra_simple"], capture_output=True, text=True)
+command = ["./output/Linux/Release/ultra_simple", "--channel", "--serial", "/dev/ttyUSB0", "115200"]
 
-sleep(1)                 # Wait 1 second
-p.ChangeDutyCycle(12)    # Changes the pulse width to 12 (so moves the servo)
+for i in range(4,24):
+    i /= 2
+    p.ChangeDutyCycle(i)
+    sleep(1)
+    result = subprocess.run(command, capture_output=True, text=True)
+    print("Output: ", result.stdout)
+    print("Error: ", result.stderr)
+    sleep(1)
+
+
+sleep(1)                 # Wait 1 second    # Changes the pulse width to 12 (so moves the servo)
 sleep(1)
 
 # Clean up everything
