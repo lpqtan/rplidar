@@ -40,12 +40,11 @@ for i in range(4,24):
     p.ChangeDutyCycle(i)
     sleep(1)
     result = subprocess.run(command, capture_output=True, text=True)
-    print("Output: ", result.stdout)
-    print("Error: ", result.stderr)
     sleep(1)
     # convert to degrees, i from 2-12 to 0-180
     i = (i-2)*18
-    cleanstring = processdata(result.stdout,i)
+    cleanstring = processdata(result.stdout,str(i))
+    print("Cleaned string: ", cleanstring)
     outputfile.write(cleanstring)
     
     
