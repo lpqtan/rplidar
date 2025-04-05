@@ -22,6 +22,7 @@ def processdata(resultstring,servoangle):
                 final += somestring + "," + servoangle + "\n"
         except:
             continue
+        count += 1
     return final
 
     
