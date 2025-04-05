@@ -13,7 +13,7 @@ def processdata(resultstring,servoangle):
     for somestring in new:
         somestring = somestring.strip()
         try:
-            testvar = int(somestring)
+            testvar = float(somestring)
             if count % 3 != 0:
                 final += somestring + ","
             else:
