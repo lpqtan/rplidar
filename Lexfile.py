@@ -4,6 +4,8 @@ import subprocess
 import RPi.GPIO as GPIO  # Imports the standard Raspberry Pi GPIO library
 from time import sleep   # Imports sleep (aka wait or pause) into the program
 GPIO.setmode(GPIO.BOARD) # Sets the pin numbering system to use the physical layout
+import os
+
 
 def processdata(resultstring,servoangle):
     new = re.split('theta:|Dist:|Q:|\n', resultstring)
@@ -32,6 +34,11 @@ p.start(0)               # Starts running PWM on the pin and sets it to 0
 # Move the servo back and forth
 p.ChangeDutyCycle(3)     # Changes the pulse width to 3 (so moves the servo)
 command = ["./output/Linux/Release/ultra_simple", "--channel", "--serial", "/dev/ttyUSB0", "115200"]
+
+if os.path.exists("lidardatafile.csv"):
+  os.remove("lidardatafile.csv")
+else:
+  print("file has not been created before")
 
 outputfile = open("lidardatafile.csv", "a")
 
