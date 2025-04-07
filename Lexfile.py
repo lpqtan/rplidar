@@ -43,7 +43,7 @@ else:
 
 outputfile = open("lidardatafile.csv", "a")
 
-for i in range(20,120,5):
+for i in range(20,120,3):
     i /= 10
     p.ChangeDutyCycle(i)
     sleep(0.7)
