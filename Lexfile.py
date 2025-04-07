@@ -43,7 +43,8 @@ else:
 
 outputfile = open("lidardatafile.csv", "a")
 
-for i in range(2,12,0.1):
+for i in range(20,120,5):
+    i /= 10
     p.ChangeDutyCycle(i)
     sleep(0.7)
     result = subprocess.run(command, capture_output=True, text=True)
@@ -51,7 +52,6 @@ for i in range(2,12,0.1):
     # convert to degrees, i from 2-12 to 0-180
     i = (i-2)*18
     cleanstring = processdata(result.stdout,str(i))
-    print("Cleaned string: ", cleanstring)
     outputfile.write(cleanstring)
     
     
